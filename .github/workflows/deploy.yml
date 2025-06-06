@@ -1,0 +1,51 @@
+name: Deploy to IBM Cloud Code Engine
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  IMAGE_NAME: olympia-countdown
+  REGISTRY_NAMESPACE: olympia-countdown
+  REGION: ${{ secrets.IBM_CLOUD_REGION }}
+  RESOURCE_GROUP: ${{ secrets.IBM_CLOUD_RESOURCE_GROUP }}
+  PROJECT: ${{ secrets.IBM_CLOUD_PROJECT }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install IBM Cloud CLI
+      run: |
+        curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+        ibmcloud plugin install container-registry code-engine -f
+
+    - name: IBM Cloud Login
+      run: |
+        ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -r "${{ env.REGION }}" -g "${{ env.RESOURCE_GROUP }}"
+        ibmcloud ce project select --name "${{ env.PROJECT }}"
+        ibmcloud cr login
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }} .
+        docker push us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}
+
+    - name: Deploy to Code Engine
+      run: |
+        ibmcloud ce app create \
+          --name olympia-app \
+          --image us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }} \
+          --port 5000 \
+          --cpu 0.25 \
+          --memory 0.5G \
+          --min-scale 1 \
+          --max-scale 2 \
+          --registry-secret my-registry-secret || \
+        ibmcloud ce app update \
+          --name olympia-app \
+          --image us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}

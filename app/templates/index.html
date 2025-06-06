@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Olympia Countdown</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        img {
+            width: 200px;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/olympic_rings.svg" alt="Olympia Logo">
+    <h1>Countdown zu den Olympischen Winterspielen 2026</h1>
+    <div id="countdown"></div>
+
+    <script>
+        const targetDate = new Date("{{ olympics_start.isoformat() }}Z").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                document.getElementById("countdown").innerHTML = "Die Spiele haben begonnen!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((distance / (1000 * 60)) % 60);
+            const seconds = Math.floor((distance / 1000) % 60);
+
+            document.getElementById("countdown").innerHTML =
+                `${days} Tage, ${hours} Std, ${minutes} Min, ${seconds} Sek`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

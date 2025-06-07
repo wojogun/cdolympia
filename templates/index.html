@@ -40,9 +40,7 @@
             const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((distance / (1000 * 60)) % 60);
             const seconds = Math.floor((distance / 1000) % 60);
-
-            document.getElementById("countdown").innerHTML =
-                `${days} Tage, ${hours} Std, ${minutes} Min, ${seconds} Sek`;
+            document.getElementById("countdown").innerHTML = `${days} Tage, ${hours}:${minutes}:${seconds}`;
         }
 
         setInterval(updateCountdown, 1000);

@@ -46,3 +46,13 @@ weil wir gerade dabei sind. Etwas später brauchen wir auch noch dieses Plugin:
 
 an dieser Stelle wurde es kompliziert. Um ein Cloud-Projekt anzulegen, muss man eine Kreditkarte hinterlegen. Leider hat IBM meine verweigert - die Daten ließen sich nicht speichern. Möglicher Weise liegt das an den anstehenden Kündigungen nachdem Raiffeisen und CardComplete die Zusammenarbeit beendet haben. Also musste ich mir eine Alternative suchen und bei bei render.com gelandet.
 
+Dort ging es aber wirklich flott, es mussten lediglich ein paar Angaben gemacht werden:
+- neues Webservice erstellen
+- Im Feld language (!!!) muss man dann angeben, dass es sich um ein Dockerimage handelt.
+- Verknüpfung mit dem github-Repo -> https://github.com/wojogun/cdolympia
+- Welcher Branch -> main
+- Wo es laufen soll -> Frankfurt (EU Central)
+- Instance Type -> free 0.1 CPU 512MB
+
+Theoretisch sollte nun bei einem Pull Request auf den main-Branch der Deployment-Prozess anlaufen. Ich habe ihn aber manuell gestartet.
+https://cdolympia.onrender.com

@@ -54,5 +54,5 @@ Dort ging es aber wirklich flott, es mussten lediglich ein paar Angaben gemacht 
 - Wo es laufen soll -> Frankfurt (EU Central)
 - Instance Type -> free 0.1 CPU 512MB
 
-Theoretisch sollte nun bei einem Pull Request auf den main-Branch der Deployment-Prozess anlaufen. Ich habe ihn aber manuell gestartet.
+Nun läuft beim Merge eines Pull Requests auf den main-Branch der Deployment-Prozess an. Auch manuelles Starten ist möglich.
 https://cdolympia.onrender.com

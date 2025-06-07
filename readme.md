@@ -44,5 +44,5 @@ und die richtige Region auswählen:
 weil wir gerade dabei sind. Etwas später brauchen wir auch noch dieses Plugin:
 ```ibmcloud plugin install code-engine```
 
-
+an dieser Stelle wurde es kompliziert. Um ein Cloud-Projekt anzulegen, muss man eine Kreditkarte hinterlegen. Leider hat IBM meine verweigert - die Daten ließen sich nicht speichern. Möglicher Weise liegt das an den anstehenden Kündigungen nachdem Raiffeisen und CardComplete die Zusammenarbeit beendet haben. Also musste ich mir eine Alternative suchen und bei bei render.com gelandet.
 

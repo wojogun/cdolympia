@@ -57,3 +57,5 @@ Dort ging es aber wirklich flott, es mussten lediglich ein paar Angaben gemacht 
 
 Nun läuft beim Merge eines Pull Requests auf den main-Branch der Deployment-Prozess an. Auch manuelles Starten ist möglich.
 https://cdolympia.onrender.com
+
+https://dashboard.render.com/web/srv-d12aulemcj7s73f6gs70/events

@@ -27,7 +27,7 @@ jobs:
     - name: IBM Cloud Login
       run: |
         ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -r "${{ env.REGION }}" -g "${{ env.RESOURCE_GROUP }}"
-        ibmcloud ce project select --name "${{ env.PROJECT }}"
+        # ibmcloud ce project select --name "${{ env.PROJECT }}"
         ibmcloud cr login
 
     - name: Build and Push Docker Image

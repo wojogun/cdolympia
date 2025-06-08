@@ -35,11 +35,12 @@
                 document.getElementById("countdown").innerHTML = "Die Spiele haben begonnen!";
                 return;
             }
-
+            if ( isNaN(distance) ) { distance = 3600000; }
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((distance / (1000 * 60)) % 60);
-            const seconds = Math.floor((distance / 1000) % 60);
+            const hours = ("00"+Math.floor((distance / (1000 * 60 * 60)) % 24)).slice(-2);
+            const minutes = ("00"+Math.floor((distance / (1000 * 60)) % 60)).slice(-2);
+            const seconds = ("00"+Math.floor((distance / 1000) % 60)).slice(-2);
+            //document.getElementById("countdown").innerHTML = `${days} Tage, ("00"+${hours}).slice(-2):("00"+${minutes}).slice(-2):("00"+${seconds}).slice(-2)`;
             document.getElementById("countdown").innerHTML = `${days} Tage, ${hours}:${minutes}:${seconds}`;
         }
 

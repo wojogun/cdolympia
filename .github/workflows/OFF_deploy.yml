@@ -9,7 +9,7 @@ env:
   REGISTRY_NAMESPACE: olympia-countdown
   REGION: ${{ secrets.IBM_CLOUD_REGION }}
   RESOURCE_GROUP: ${{ secrets.IBM_CLOUD_RESOURCE_GROUP }}
-  #PROJECT: ${{ secrets.IBM_CLOUD_PROJECT }}
+  PROJECT: ${{ secrets.IBM_CLOUD_PROJECT }}
 
 jobs:
   deploy:

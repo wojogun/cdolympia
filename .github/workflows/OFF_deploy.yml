@@ -39,7 +39,7 @@ jobs:
       run: |
         ibmcloud ce app create \
           --name olympia-app \
-          --image us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }} \
+          --image de.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }} \
           --port 5000 \
           --cpu 0.25 \
           --memory 0.5G \
@@ -48,4 +48,4 @@ jobs:
           --registry-secret my-registry-secret || \
         ibmcloud ce app update \
           --name olympia-app \
-          --image us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}
+          --image de.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}

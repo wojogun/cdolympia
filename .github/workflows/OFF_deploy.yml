@@ -32,8 +32,8 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }} .
-        docker push us.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}
+        docker build -t de.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }} .
+        docker push de.icr.io/${{ env.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}
 
     - name: Deploy to Code Engine
       run: |
